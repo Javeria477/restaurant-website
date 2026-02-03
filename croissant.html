@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- google font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <!-- swiper link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- gallery section link from cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+    <title>Document</title>
+    
+    <style>
+*{
+    font-family: "Dosis", sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none; outline: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all .4s cubic-bezier(.43, 1.1, .62, 1.08);
+}
+:root{
+    --peru:#9A1750;
+    --black:#222;
+    --white:#fff;
+    --light-black:#666;
+    --light-white:#ccc;
+    --light-bg:#f5f5f5;
+    --dark-bg:rgba(0, 0, 0, .7);
+    --border:.1rem solid #aaa;
+    --box-shadow:0 .5rem 1rem rgba(0, 0, 0, .1);
+
+}
+* > img{
+    user-select: none;
+    pointer-events: none;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+    html::-webkit-scrollbar{
+        width: 1rem;
+    }
+    html::-webkit-scrollbar-track{
+        background: var(--white);
+    }
+    html::-webkit-scrollbar-thumb{
+        background: var(--peru);
+        border-radius: .5rem;
+    }
+    section{
+        padding: 5rem 10%;
+     }
+
+.heading{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.heading span{
+    font-size: 2.5rem;
+    color: var(--peru);
+}
+
+.heading h3{
+    font-size: 4.5rem;
+    color: var(--black);
+}
+     .btn{
+        margin-top: 1rem;
+        display: inline-block;
+        background: var(--peru);
+        color: var(--white);
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 1rem 3rem;
+     }
+
+     .btn:hover{
+        letter-spacing: .2rem;
+     }
+     .header{
+        background: var(--white);
+        padding-top:2rem;
+        padding-bottom: 2rem;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        position: sticky;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+    }
+
+.header .logo{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+.header .logo i{
+    color: var(--peru);
+    padding-right: .5rem;
+}
+
+.header .navbar a{
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: var(--light-black);
+}
+
+.header .navbar a:hover{
+    color: var(--peru);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--black);
+    display: none;
+}
+
+@keyframes fadein {
+    0%{
+        transform: translateY(-4rem) scale(0);
+        opacity: 0;
+    }
+}
+/* home CSS */
+.home{
+    background: var(--black);
+    padding: 0;
+}
+
+.home .slide{
+    min-height: 100vh;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home .slide::after{
+ content: '';
+ position: absolute;
+ top: 0; left: 0;
+ height: 100%;
+ width: 100%;   
+ background: var(--dark-bg);
+ z-index: -1;
+}
+
+.home .slide .content{
+    text-align: center;
+    width: 70rem;
+    display: none;
+}
+
+.home .slide .content span{
+    font-size: 3rem;
+    display: block;
+    padding-bottom: .5rem;
+    color: var(--peru);
+    animation: fadein 0.4s cubic-bezier(.43, 1.1, .62, 1.08) .2s backwards;
+}
+
+.home .slide .content h3{
+    font-size: 8vw;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 0 .5rem 1rem rgb(0, 0, 0, .7);
+    line-height: 1;
+    padding: 2rem 0;
+    animation: fadein 0.4s cubic-bezier(.43, 1.1, .62, 1.08) .4s backwards;
+}
+
+.home .slide .content .btn{
+    animation: fadein 0.4s cubic-bezier(.43, 1.1, .62, 1.08) .6s backwards;
+
+}
+
+.home .swiper-slide-active .content{
+    display: inline-block;
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    background: var(--white);
+    color: var(--black);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+    font-size: 2rem;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    background: var(--peru);
+    color: var(--white);
+}
+
+/* about CSS */
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.about .image{
+    flex: 1 1 41rem;
+}
+
+.about .image img{
+    width: 100%;
+}
+
+.about .content{
+    flex: 1 1 41rem;
+}
+
+.about .content .title{
+    font-size: 4rem;
+    color: var(--black);
+}
+
+.about .content p{
+    font-size: 1.7rem;
+    color: var(--light-black);
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.about .content .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about .content .icons-container .icons{
+    flex: 1 1 16rem;
+    text-align: center;
+    background: var(--light-bg);
+    padding: 3rem 2rem;
+}
+
+.about .icons-container .icons img{
+    height: 7rem;
+}
+
+.about .icons-container .icons h3{
+    padding-top: 1rem;
+    font-size: 2rem;
+    color: var(--light-black);
+    font-weight: normal;
+}
+
+/* food CSS */
+
+.foods{
+    background: var(--white);
+}
+
+.foods .slide{
+    cursor: pointer;
+    transform: scale(.9);
+    opacity: .5;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: .5rem;
+    margin-bottom: 4rem;
+}
+
+.swiper-pagination-bullet-active{
+background: var(--peru);
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+bottom: 0;
+}
+
+.foods .swiper-slide-active{
+    transform: scale(1);
+    opacity: 1;
+    /* background: var(--light-bg); */
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+
+.foods .slide img{
+    height: 23rem;
+    margin-bottom: 1rem;
+}
+
+.foods .slide h3{
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    color: var(--black);
+}
+
+.foods .slide .price{
+    font-size: 2.5rem;
+    color: var(--peru);
+}
+
+/* preview CSS */
+
+.food-preview-container{
+    background: var(--dark-bg);
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.food-preview-container .food-preview{
+    width: 30rem;
+    background: var(--white);
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: .5rem;
+    display: none;
+}
+
+.food-preview-container .food-preview img{
+    height: 15rem;
+    margin-bottom: 1rem;
+}
+
+.food-preview-container .food-preview.active{
+    display: inline-block;
+}
+
+.food-preview-container .food-preview h3{
+    padding: 1rem 0;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.food-preview-container .food-preview .stars{
+    margin-top: .5rem;
+}
+
+.food-preview-container .food-preview .stars i{
+    font-size: 1.7rem;
+    color: var(--peru);
+}
+
+.food-preview-container .food-preview p{
+    font-size: 1.6rem;
+    color: var(--light-black);
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.food-preview-container .food-preview .price{
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: .5rem;
+}
+
+#close-preview{
+    position: absolute;
+    top: 1.5rem; right: 2.5rem;
+    color: var(--white);
+    font-size: 6rem;
+    cursor: pointer;    
+}
+
+#close-preview:hover{
+    transform: rotate(90deg);
+}
+
+.gallery .gallery-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.gallery .gallery-container .box{
+    height: 40rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery .gallery-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery .gallery-container .box .icons{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background: var(--dark-bg);
+}
+
+.gallery .gallery-container .box .icons i{
+    font-size: 6rem;
+    color: var(--white);
+}
+
+.gallery .gallery-container .box:hover .icons{
+    display: flex;
+}
+
+/* menu CSS */
+.menu{
+    background-color: var(--light-bg);
+}
+
+.menu .slide .title{
+    padding: 1rem;
+    margin-bottom: 3rem;
+    font-size: 3rem;
+    color: var(--white);
+    background: var(--peru);
+    text-align: center;
+}
+
+.menu .slide .box-container{
+    padding-bottom: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.menu .slide .box-container .box{
+    flex: 1 1 41rem;
+    background: var(--white);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.menu .slide .box-container .box h3{
+    font-size: 2.5rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+}
+
+.menu .slide .box-container .box p{
+    font-size: 1.5rem;
+    color: var(--light-black);
+    line-height: 2;
+}
+
+.menu .slide .box-container .box .price{
+    font-size: 2rem;
+    color: var(--peru);
+}
+
+.menu .slide .box-container .box:hover{
+    transform: scale(.9);
+    cursor: pointer;
+}
+
+/* order CSS */
+
+.order{
+    background: var(--peru);
+}
+
+.order .heading span{
+    color: var(--white);
+}
+
+.order .heading h3{
+    color: var(--white);
+}
+
+.order form{
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    background: var(--white);
+}
+
+.order form .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.order form .box-container .box{
+    flex: 1 1 41rem;
+}
+
+.order form .box-container .box .inputbox input,
+.order form .box-container .box .inputbox textarea{
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.7rem;
+    color: var(--light-black);
+    border: var(--border);
+    text-transform: none;
+}
+
+.order form .box-container .box .inputbox input::placeholder,
+.order form .box-container .box .inputbox textarea::placeholder{
+    text-transform: capitalize;
+}
+
+
+.order form .box-container .box .inputbox input:focus,
+.order form .box-container .box .inputbox textarea:focus{
+    background: var(--peru);
+    color: var(--white);
+}
+
+
+.order form .box-container .box .inputbox input:focus::placeholder,
+.order form .box-container .box .inputbox textarea:focus::placeholder{
+color: var(--light-white);
+}
+
+.order form .box-container .box .inputbox textarea{
+    height: 20rem;
+    resize: none;
+}
+
+.order form .box-container .box .inputbox .map{
+    height: 20rem;
+    width: 100%;
+    margin: 1rem 0;
+    padding: .5rem 0;
+}
+
+.order form .box-container .box .inputbox span{
+    color: var(--light-black);
+    font-size: 2rem;
+}
+
+/* blogs CSS */
+
+.blogs{
+    background: var(--light-bg);
+}
+.blogs .slide{
+    margin: .2rem;
+}
+.blogs .slide .image{
+    height: 22rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.blogs .slide .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blogs .slide .image span{
+    position: absolute;
+    bottom: -10rem; left: 50%;
+    transform: translateX(-50%);
+    padding: .5rem 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+    background: var(--black);
+    z-index: 10;
+}
+
+.blogs .slide:hover .image span{
+    bottom: 1rem;
+}
+
+.blogs .slide:hover .image img{
+    transform: scale(1.1);
+}
+
+.blogs .slide .content{
+    padding: 2rem;
+    background: var(--white);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 4rem;
+}
+
+.blogs .slide .content .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.blogs .slide .content .icons a{
+    font-size: 1.5rem;
+    color: var(--light-black);
+}
+
+.blogs .slide .content .icons a:hover{
+    color: var(--peru);
+}
+
+.blogs .slide .content .icons a i{
+    font-size: 1.5rem;
+    color: var(--peru);
+}
+
+.blogs .slide .content .title{
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.blogs .slide .content .title:hover{
+    text-decoration: underline;
+}
+
+.blogs .slide .content p{
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.6rem;
+    color: var(--light-black);
+}
+
+/* footer CSS */
+
+.footer{
+    text-align: center;
+}
+
+.footer .icons-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+}
+
+.footer .icons-container .icons{
+    text-align:center;
+    padding: 3rem 2rem;
+}
+
+.footer .icons-container .icons i{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background: var(--peru);
+    color: var(--white);
+    margin-bottom: .5rem;
+    line-height: 5.8rem;
+    font-size: 2rem;
+}
+
+.footer .icons-container .icons h3{
+    font-size: 2rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+
+.footer .icons-container .icons p{
+    line-height: 1.5;
+    font-size: 1.7rem;
+    color: var(--light-black);
+    text-transform: none;
+}
+
+.footer .share{
+    margin: 2rem 0;
+}
+
+.footer .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5.4rem;
+    color: var(--white);
+    background: var(--light-black);
+    margin: 0 .3rem;
+    font-size: 2.5rem;
+}
+
+.footer .share a:hover{
+    background:var(--peru) ;
+}
+
+.footer .credit{
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color: var(--light-black);
+}
+
+
+
+
+
+
+
+
+
+@media (max-width:1200px) {
+    section{
+        padding:3rem 5%; 
+    }
+}
+
+@media (max-width:991px) {
+    section{
+        padding:3rem 2rem; 
+    }
+    html{
+        font-size:55%;
+    }
+    .home .slide .content h3{
+        font-size: 15vw;
+    }
+}
+
+@media (max-width:768px){
+    .header .navbar{
+        position: absolute;
+        top: 99%; left: 0; right: 0;
+        background: var(--white);
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .header .navbar a{
+        display: block;
+        margin: 2rem;
+    }
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    }
+    #menu-btn{
+        display: inline-block;
+    }
+    .fa-times{
+        transform: rotate(180deg);
+    }
+
+.swiper-button-next,
+.swiper-button-prev{
+    top: initial;
+    bottom: 1rem;
+}
+.menu .slide .box-container .box{
+    flex-flow: column;
+    text-align: center;
+}
+}
+
+@media (max-width:450px) {
+    html{
+        font-size: 50%;
+    }
+    .home .slide .content h3{
+        font-size: 5rem;
+    }
+    .footer .icons-container{
+ grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+            
+    }
+     .footer .icons-container .icon{
+          padding: 1.5rem 1rem;
+    text-align: center;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- header section starts -->
+    <section class="header">
+<a href="#" class="logo"><i class="fas fa-utensils"></i>food</a>
+<nav class="navbar">
+    <a href="#home">home</a>
+    <a href="#about">about</a>
+    <a href="#foods">foods</a>
+    <a href="#gallery">gallery</a>
+    <a href="#menu">menu</a>
+    <a href="#orders">orders</a>
+    <a href="#blogs">blogs</a>
+</nav>
+<div id="menu-btn" class="fas fa-bars"></div>
+    </section>
+    <!-- header section ends -->
+
+<!-- home section starts -->
+<section class="home" id="home">
+<div class="swiper home-slider">
+<div class="swiper-wrapper">
+    <div class="swiper-slide slide" style="background:url('https://img.freepik.com/premium-photo/junk-food-concept-unhealthy-food-background-fast-food-sugar-burger-sweets-chocolate-donuts-soda-dark-background-ai-generative_653154-1393.jpg?w=826')no-repeat ;">
+        <div class="content">
+            <span>outstanding food</span>
+            <h3>delicious cooking</h3>
+            <a href="#" class="btn">get started</a>
+        </div>
+    </div>
+
+    <div class="swiper-slide slide" style="background:url('https://img.freepik.com/premium-photo/cup-coffee-with-croissant-dark-background-coffee-beans-black-marble-table-closeup_304782-1928.jpg?w=996')no-repeat ;">
+        <div class="content">
+            <span>outstanding food</span>
+            <h3>delicious cooking</h3>
+            <a href="#" class="btn">get started</a>
+        </div>
+    </div>
+
+    <div class="swiper-slide slide" style="background:url('https://static.vecteezy.com/system/resources/previews/023/010/420/non_2x/the-delicious-burger-in-the-black-background-with-ai-generated-free-photo.jpg')no-repeat ;">
+        <div class="content">
+            <span>outstanding food</span>
+            <h3>delicious cooking</h3>
+            <a href="#" class="btn">get started</a>
+        </div>
+    </div>
+</div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
+</section>
+<!-- home section ends -->
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <div class="image">
+        <img src="https://img.freepik.com/premium-photo/freshly-baked-croissants-morning-delight_984027-162283.jpg?w=740" alt="">
+    </div>
+    <div class="content">
+        <h3 class="title">welcome to our restaurant</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque doloribus hic, tenetur dignissimos veniam ea.</p>
+        <a href="#" class="btn">read more</a>
+        <div class="icons-container">
+            <div class="icons">
+                <img src="https://static.thenounproject.com/png/4051773-200.png" alt="">
+                <h3>quality food</h3>
+            </div>
+
+            <div class="icons">
+                <img src="https://p.kindpng.com/picc/s/80-801072_drink-round-icon-png-transparent-png.png" alt="">
+                <h3>food and drinks</h3>
+            </div>
+
+            <div class="icons">
+                <img src="https://w7.pngwing.com/pngs/841/807/png-transparent-chef-hat-logo.png" alt="">
+                <h3>expert chef</h3>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- about section ends -->
+<!-- food section starts -->
+<section class="foods" id="foods">
+
+    <div class="heading">
+        <span>popular dishes</span>
+        <h3>our delicious food</h3>
+    </div>
+
+    <div class="swiper food-slider">
+
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide slide" data-name="food-1">
+            <img src="https://img.freepik.com/premium-photo/plate-food-with-meat-vegetables-it_787273-2207.jpg" alt="">
+            <h3>delicious food</h3>
+            <div class="price">49.99/-</div>
+        </div>
+        
+        <div class="swiper-slide slide" data-name="food-2">
+        <img src="https://img.freepik.com/premium-photo/plate-nachos-with-beans-peppers_862994-530187.jpg?w=740" alt="">
+            <h3>delicious food</h3>
+            <div class="price">49.99/-</div>
+        </div>
+        
+        <div class="swiper-slide slide" data-name="food-3">
+                    <img src="https://frixospersonalchefing.com/wp-content/uploads/2022/10/IMG_0502.png" alt="">
+                    <h3>delicious food</h3>
+                    <div class="price">49.99/-</div>
+                    </div>
+                    
+                    <div class="swiper-slide slide" data-name="food-4">
+                        <img src="https://media.istockphoto.com/id/673909238/photo/grilled-beef-steak.jpg?s=612x612&w=0&k=20&c=QpQzHAbx7jaUUl9WzSrWpmgcwwF9aC-2kkE5tEunUp8=" alt="">
+                        <h3>delicious food</h3>
+                        <div class="price">49.99/-</div>
+                        </div>
+
+                        <div class="swiper-slide slide" data-name="food-5">
+                            <img src="https://img.freepik.com/premium-photo/plate-food-with-meat-tomatoes-cheese_871710-68117.jpg?w=740" alt="">
+                            <h3>delicious food</h3>
+                            <div class="price">49.99/-</div>
+                            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<!-- food section ends -->
+
+<!-- preview section starts -->
+<section class="food-preview-container">
+    <div id="close-preview" class="fas fa-times"></div>
+    <div class="food-preview" data-target="food-1">
+<img src="https://img.freepik.com/premium-photo/plate-food-with-meat-vegetables-it_787273-2207.jpg" alt="">
+<h3>delicious food</h3>
+<div class="stars">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+</div>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, dicta?</p>
+<div class="price">$76.66/-</div>
+<a href="#" class="btn">buy now</a>
+    </div>
+
+    <div class="food-preview" data-target="food-2">
+        <img src="https://img.freepik.com/premium-photo/plate-nachos-with-beans-peppers_862994-530187.jpg?w=740" alt="">
+        <h3>delicious food</h3>
+        <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, dicta?</p>
+        <div class="price">$76.66/-</div>
+        <a href="#" class="btn">buy now</a>
+            </div>
+
+            <div class="food-preview" data-target="food-3">
+                <img src="https://frixospersonalchefing.com/wp-content/uploads/2022/10/IMG_0502.png" alt="">
+                <h3>delicious food</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, dicta?</p>
+                <div class="price">$76.66/-</div>
+                <a href="#" class="btn">buy now</a>
+                    </div>
+
+                    <div class="food-preview" data-target="food-4">
+                        <img src="https://media.istockphoto.com/id/673909238/photo/grilled-beef-steak.jpg?s=612x612&w=0&k=20&c=QpQzHAbx7jaUUl9WzSrWpmgcwwF9aC-2kkE5tEunUp8=" alt="">
+                        <h3>delicious food</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, dicta?</p>
+                        <div class="price">$76.66/-</div>
+                        <a href="#" class="btn">buy now</a>
+                            </div>
+
+                            <div class="food-preview" data-target="food-5">
+                                <img src="https://img.freepik.com/premium-photo/plate-food-with-meat-tomatoes-cheese_871710-68117.jpg?w=740" alt="">
+                                <h3>delicious food</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, dicta?</p>
+                                <div class="price">$76.66/-</div>
+                                <a href="#" class="btn">buy now</a>
+                                    </div>
+
+</section>
+<!-- preview section ends -->
+
+<!-- gallery section starts -->
+<section class="gallery" id="gallery">
+    <div class="heading">
+        <span>our gallery</span>
+        <h3>our untold stories</h3>
+    </div>
+
+    <div class="gallery-container">
+<a href="../images2/gallery1.jpg" class="box">
+    <img src="https://assets.hotcooking.co.uk/portrait45/dishoom_chicken_tikka_large.jpg" alt="">
+    <div class="icons"><i class="fas fa-plus"></i></div>
+</a>
+
+<a href="../images2/gallery2.jpg" class="box">
+    <img src="https://shwetainthekitchen.com/wp-content/uploads/2020/08/IMG_9973.jpg" alt="">
+    <div class="icons"><i class="fas fa-plus"></i></div>
+</a>
+
+<a href="../images2/gallery3.webp" class="box">
+    <img src="https://content.jdmagicbox.com/v2/comp/guwahati/e9/9999px361.x361.231108115624.i3e9/catalogue/the-shawarma-wrap-co-maligaon-guwahati-restaurants-8smtmgvrem.jpg" alt="">
+    <div class="icons"><i class="fas fa-plus"></i></div>
+</a>
+
+<a href="../images2/gallery4.jpg" class="box">
+    <img src="https://images.immediate.co.uk/production/volatile/sites/2/2018/03/asian-pulled-fries-46a8ab0.jpg" alt="">
+    <div class="icons"><i class="fas fa-plus"></i></div>
+</a>
+
+<a href="../images2/gallery5.jpg" class="box">
+    <img src="https://www.mygingergarlickitchen.com/wp-content/rich-markup-images/1x1/1x1-bhel-puri.jpg" alt="">
+    <div class="icons"><i class="fas fa-plus"></i></div>
+</a>
+
+<a href="../images2/gallery6.jpg" class="box">
+    <img src="https://recipe52.com/wp-content/uploads/2022/01/chicken-chargha-2.jpg" alt="">
+    <div class="icons"><i class="fas fa-plus"></i></div>
+</a>
+    </div>
+</section>
+<!-- gallery section ends -->
+
+<!-- menu section starts -->
+<section class="menu" id="menu">
+    <div class="heading">
+        <span>our menu</span>
+        <h3>our popular dishes</h3>
+    </div>
+    <div class="swiper menu-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <h3 class="title">breakfast</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="info">
+                            <h3>morning breakfast</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>morning breakfast</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>morning breakfast</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>morning breakfast</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>morning breakfast</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>morning breakfast</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <h3 class="title">lunch</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious lunch</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious lunch</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious lunch</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious lunch</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <h3 class="title">dinner</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious dinner</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious dinner</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious dinner</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious dinner</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>delicious dinner</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <h3 class="title">cold drinks</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="info">
+                            <h3>cold drinks</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>cold drinks</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>cold drinks</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>cold drinks</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>cold drinks</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>cold drinks</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <h3 class="title">dessert</h3>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="info">
+                            <h3>sweet dessert</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>sweet dessert</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>sweet dessert</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+
+                    <div class="box">
+                        <div class="info">
+                            <h3>sweet dessert</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum.</p>
+                        </div>
+                        <div class="price">$49.99/-</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+
+    </div>
+</section>
+<!-- menu section ends -->
+
+<!-- order section starts -->
+<section class="order" id="order">
+    <div class="heading">
+        <span>order now</span>
+        <h3>fast home delivery</h3>
+    </div>
+    <form action="">
+        <div class="box-container">
+
+            <div class="box">
+                <div class="inputbox">
+                    <span>full name</span>
+                    <input type="text" placeholder="enter your name">
+                </div>
+                <div class="inputbox">
+                    <span>food name</span>
+                    <input type="text" placeholder="food you want">
+                </div>
+                <div class="inputbox">
+                    <span>our details</span>
+                    <input type="text" placeholder="specifies with food">
+                </div>
+                <div class="inputbox">
+                    <span>your address</span>
+                    <textarea name="" placeholder="enter your address" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="inputbox">
+                    <span>number</span>
+                    <input type="number" placeholder="enter your number">
+                </div>
+                <div class="inputbox">
+                    <span>how much</span>
+                    <input type="number" placeholder="how many you want?">
+                </div>
+                <div class="inputbox">
+                    <span>when you want?</span>
+                    <input type="datetime-local">
+                </div>
+                <div class="inputbox">
+                    <span>our address</span>
+                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7237.406027433927!2d67.12282749072656!3d24.908109942513523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3391d1a2c1e8f%3A0x9ed540c1e4a38f95!2sBlock%2018%20Gulistan-e-Johar%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1727268071597!5m2!1sen!2s"  allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+        <input type="submit" value="order now" class="btn">
+    </form>
+</section>
+<!-- order section ends -->
+
+<!-- blogs section starts -->
+<section class="blogs" id="blogs">
+    <div class="heading">
+        <span>our blogs</span>
+        <h3>our latest posts</h3>
+    </div>
+    <div class="swiper blog-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/5ec1febb58a4890157c8fbeb/19ebb9ed-4862-46e1-9f7c-4e5876730227/Beetroot-Burger.jpg" alt="">
+                    <span>burger</span>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2022</a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <a href="#" class="title">blog title goes here</a>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, animi?</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="https://www.shutterstock.com/image-photo/sandwich-ham-cheese-fresh-vegetables-600nw-2041866578.jpg" alt="">
+                    <span>sandwich</span>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2022</a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <a href="#" class="title">blog title goes here</a>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, animi?</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="https://img.freepik.com/premium-photo/roasted-chicken-wooden-board-with-green-leaf-side_608068-15489.jpg" alt="">
+                    <span>chicken</span>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2022</a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <a href="#" class="title">blog title goes here</a>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, animi?</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg" alt="">
+                    <span>coffee</span>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2022</a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <a href="#" class="title">blog title goes here</a>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, animi?</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="https://img.freepik.com/premium-photo/different-sushi-rolls-black-background_652240-3255.jpg" alt="">
+                    <span>sushi</span>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2022</a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <a href="#" class="title">blog title goes here</a>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, animi?</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="https://png.pngtree.com/thumb_back/fw800/background/20231025/pngtree-scrumptious-homemade-fried-samosa-on-a-textured-dark-background-image_13706545.png" alt="">
+                    <span>samosa</span>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2022</a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <a href="#" class="title">blog title goes here</a>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, animi?</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+        </div>
+<div class="swiper-pagination"></div>
+    </div>
+</section>
+<!-- blogs section ends -->
+
+<!-- footer section starts -->
+<section class="footer">
+    <div class="icons-container">
+        <div class="icons">
+            <i class="fas fa-clock"></i>
+            <h3>opening hours</h3>
+            <p>07:00am to 10:00pm</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-phone"></i>
+            <h3>phone number</h3>
+            <p>+92 3083975030</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-envelope"></i>
+            <h3>email address</h3>
+            <p>javeriamanzoor698@gmail.com</p>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-map"></i>
+            <h3>address</h3>
+            <p>karachi, pakistan-42201</p>
+        </div>
+    </div>
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-whatsapp"></a>
+        <a href="#" class="fab fa-instagram"></a>
+    </div>
+    <div class="credit">| all rights resreved |</div>
+</section>
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    lightGallery(document.querySelector('.gallery .gallery-container'));
+</script>
+
+<!-- gallery section link from cdnjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+
+<!-- swiper javscript link -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+
+
+        let navbar = document.querySelector('.header .navbar');
+        let menubtn = document.querySelector('#menu-btn');
+
+        menubtn.onclick = () =>{
+            menubtn.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        };
+
+        var swiper = new Swiper(".home-slider", {
+            grabCursor:true,
+            loop:true,
+            centeredSlides:true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    var swiper = new Swiper(".food-slider", {
+            grabCursor:true,
+            loop:true,
+            centeredSlides:true,
+            pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+            breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        700: {
+          slidesPerView: 2,
+        },
+        1000: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+    let previewcontainer = document.querySelector('.food-preview-container');
+
+    let previewbox = previewcontainer.querySelectorAll('.food-preview');
+
+    document.querySelectorAll('.foods .slide').forEach(foods => {
+        foods.onclick = () => {
+            previewcontainer.style.display = 'flex';
+            let name = foods.getAttribute('data-name');
+            previewbox.forEach(preview => {
+            let target = preview.getAttribute('data-target');
+            if (name == target) {
+                preview.classList.add('active');
+             }
+            });
+        };
+    });
+
+    previewcontainer.querySelector('#close-preview').onclick = () => {
+    previewcontainer.style.display = 'none';
+    previewbox.forEach(close => {
+    close.classList.remove('active');
+  });
+    };
+
+
+    var swiper = new Swiper(".menu-slider", {
+            grabCursor:true,
+            loop:true,
+            autoHeight:true,
+            centeredSlides:true,
+            pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+    
+    var swiper = new Swiper(".blog-slider", {
+            grabCursor:true,
+            loop:true,
+            centeredSlides:true,
+            pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+            breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        700: {
+          slidesPerView: 2,
+        },
+        1000: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+    </script>
+</body>
+</html>
